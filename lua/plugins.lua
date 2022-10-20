@@ -23,8 +23,14 @@ return require('packer').startup(function(use)
 	-- Buffer delete
 	use { 'ojroques/nvim-bufdel' }
 
+	-- Installer
+	use { "williamboman/mason.nvim" }
+
+	-- Require ["williamboman/mason.nvim"]
+	-- Bridge mason/lspconfig
+	use { "williamboman/mason-lspconfig.nvim" }
+
 	-- Require ["nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons"]
 	-- Telescope
-	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', config = function() require("config.telescope") end }
-
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
 end)
