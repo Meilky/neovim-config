@@ -30,6 +30,10 @@ return require('packer').startup(function(use)
 	-- Bridge mason/lspconfig
 	use { "williamboman/mason-lspconfig.nvim" }
 
+	-- Completion
+	use { "hrsh7th/nvim-cmp" }
+	use { "hrsh7th/cmp-nvim-lsp" }
+
 	-- Require ["nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons"]
 	-- Telescope
 	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
