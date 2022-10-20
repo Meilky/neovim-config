@@ -20,4 +20,5 @@ vim.opt.colorcolumn = "100"
 
 vim.opt.cmdheight = 0
 vim.opt.signcolumn = "yes"
+vim.opt.winbar = "%f"
 vim.opt.laststatus = 3 -- Global status line

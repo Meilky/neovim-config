@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
 
 	-- Utils
 	use { 'nvim-lua/plenary.nvim' }
+	use { "norcalli/nvim-colorizer.lua" }
 
 	-- Theme
 	use { 'folke/tokyonight.nvim' }
@@ -36,6 +37,9 @@ return require('packer').startup(function(use)
 	use { "hrsh7th/cmp-buffer" }
 	use { "hrsh7th/cmp-path" }
 	use { "saadparwaiz1/cmp_luasnip"}
+
+	-- Line
+	use { 'ojroques/nvim-hardline' }
 
 	-- Snippets
 	use {"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"}
