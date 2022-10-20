@@ -1,14 +1,8 @@
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ","
 
-local builtin = require('telescope.builtin')
 local lspbuf = require('vim.lsp.buf')
 local km = require("vim.keymap")
-
-km.set('n', '<leader>ff', builtin.find_files)
-km.set('n', '<leader>fg', builtin.live_grep)
-km.set('n', '<leader>fb', builtin.buffers)
-km.set('n', '<leader>fh', builtin.help_tags)
 
 km.set("n", "<leader>gg", lspbuf.hover)
 km.set("n", "<leader>gr", lspbuf.rename)
