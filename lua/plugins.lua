@@ -24,12 +24,19 @@ return require('packer').startup(function(use)
 	-- Buffer delete
 	use { 'ojroques/nvim-bufdel' }
 
-	-- Installer
+	-- Mason
 	use { "williamboman/mason.nvim" }
+
+	-- Null-ls
+	use { "jose-elias-alvarez/null-ls.nvim" }
 
 	-- Require ["williamboman/mason.nvim"]
 	-- Bridge mason/lspconfig
 	use { "williamboman/mason-lspconfig.nvim" }
+
+	-- Require ["williamboman/mason.nvim"]
+	-- Bridge mason/null-ls
+	use { "jayp0521/mason-null-ls.nvim" }
 
 	-- Completion
 	use { "hrsh7th/nvim-cmp" }
