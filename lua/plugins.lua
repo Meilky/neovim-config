@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
 		use({
 			'folke/tokyonight.nvim',
 			config = function()
+				vim.cmd("set termguicolors")
 				vim.cmd("colorscheme tokyonight-storm")
 			end
 		})
