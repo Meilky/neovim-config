@@ -1,5 +1,7 @@
 local indent = 4
 
+vim.cmd("set termguicolors")
+
 vim.opt.tabstop = indent
 vim.opt.shiftwidth = indent
 vim.opt.softtabstop = indent
