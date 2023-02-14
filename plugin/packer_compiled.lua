@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/home/meilky/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
-  ["nvim-bufdel"] = {
-    loaded = true,
-    path = "/home/meilky/.local/share/nvim/site/pack/packer/start/nvim-bufdel",
-    url = "https://github.com/ojroques/nvim-bufdel"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/meilky/.local/share/nvim/site/pack/packer/start/nvim-cmp",

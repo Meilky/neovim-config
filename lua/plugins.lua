@@ -29,9 +29,6 @@ return require('packer').startup(function(use)
 		-- Git signs
 		use({ 'lewis6991/gitsigns.nvim' })
 
-		-- Buffer delete
-		use({ 'ojroques/nvim-bufdel' })
-
 		-- Mason
 		use({ "williamboman/mason.nvim" })
 
