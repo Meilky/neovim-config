@@ -1,16 +1,7 @@
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ","
 
-local lspbuf = require('vim.lsp.buf')
 local km = require("vim.keymap")
-
-km.set("n", "<leader>gg", lspbuf.hover)
-km.set("n", "<leader>gr", lspbuf.rename)
-km.set("n", "<leader>ga", lspbuf.code_action)
-km.set("n", "<leader>fr", lspbuf.references)
-km.set("n", "<leader>fd", lspbuf.definition)
-km.set("n", "<leader>fi", lspbuf.implementation)
-km.set("n", "<leader>FF", lspbuf.format)
 
 km.set("n", "<leader>ws", "<cmd>split<CR>")
 km.set("n", "<leader>wv", "<cmd>vsplit<CR>")
