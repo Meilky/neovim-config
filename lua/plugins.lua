@@ -6,11 +6,11 @@ return require('packer').startup(function(use)
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
+		branch = 'v2.x',
 		requires = {
 			-- LSP Support
-			{ 'neovim/nvim-lspconfig' }, -- Required
-			{ 'williamboman/mason.nvim' }, -- Optional
+			{ 'neovim/nvim-lspconfig' },    -- Required
+			{ 'williamboman/mason.nvim' },  -- Optional
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
 			{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
 			-- Snippets
-			{ 'L3MON4D3/LuaSnip' }, -- Required
+			{ 'L3MON4D3/LuaSnip' },    -- Required
 			{ 'rafamadriz/friendly-snippets' }, -- Optional
 		}
 	}
