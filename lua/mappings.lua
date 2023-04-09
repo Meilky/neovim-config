@@ -18,3 +18,6 @@ km.set("n", "<leader>w=", "<C-W>=")
 km.set("n", "<leader>wr", "<C-W>R")
 km.set("n", "<leader>wtj", "<C-W>t<C-W>K")
 km.set("n", "<leader>wtl", "<C-W>t<C-W>H")
+
+km.set({"n", "v"}, "<leader>y", '"*y')
+km.set("v", "<leader>p", '"*p')
