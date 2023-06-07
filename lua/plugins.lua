@@ -1,67 +1,69 @@
-vim.cmd.packadd('packer.nvim')
-
-return require('packer').startup(function(use)
-	-- Packer
-	use({ 'wbthomason/packer.nvim' })
-
-	use {
+require('lazy').setup({
+	{
 		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{ 'neovim/nvim-lspconfig' },    -- Required
-			{ 'williamboman/mason.nvim' },  -- Optional
-			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
+		dependencies = {
+			'neovim/nvim-lspconfig',
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
 
-			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' }, -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
-			{ 'hrsh7th/cmp-buffer' }, -- Optional
-			{ 'hrsh7th/cmp-path' }, -- Optional
-			{ 'saadparwaiz1/cmp_luasnip' }, -- Optional
-			{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
+			'hrsh7th/nvim-cmp',
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-path',
+			'saadparwaiz1/cmp_luasnip',
+			'hrsh7th/cmp-nvim-lua',
 
-			-- Snippets
-			{ 'L3MON4D3/LuaSnip' },    -- Required
-			{ 'rafamadriz/friendly-snippets' }, -- Optional
+			'L3MON4D3/LuaSnip',
+			'rafamadriz/friendly-snippets',
+			'onsails/lspkind.nvim'
 		}
-	}
+	},
 
-	-- Utils
-	use({ 'nvim-lua/plenary.nvim' })
-	use({ "norcalli/nvim-colorizer.lua" })
+	{ 'nvim-lua/plenary.nvim' },
+	{ "norcalli/nvim-colorizer.lua" },
 
 	-- Git signs
-	use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
-	use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
-	use({ 'lewis6991/gitsigns.nvim' })
+	{ 'TimUntersberger/neogit',     dependencies = { 'nvim-lua/plenary.nvim' } },
+	{ 'sindrets/diffview.nvim',     dependencies = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'lewis6991/gitsigns.nvim' },
 
 	-- Theme
-	use({
+	{
 		'folke/tokyonight.nvim',
 		config = function()
 			vim.cmd("set termguicolors")
 			vim.cmd("colorscheme tokyonight-storm")
 		end
-	})
+	},
 
 	-- Icons
-	use({ 'nvim-tree/nvim-web-devicons' })
+	{ 'nvim-tree/nvim-web-devicons' },
 
 	-- Tressiter
-	use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
 
 	-- Null-ls
-	use { "jose-elias-alvarez/null-ls.nvim" }
+	{ "jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
 
-	-- Require ["williamboman/mason.nvim"]
-	-- Bridge mason/null-ls
-	use({ "jayp0521/mason-null-ls.nvim" })
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+	},
 
 	-- Line
-	use({ 'ojroques/nvim-hardline' })
+	{ 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'ojroques/nvim-hardline' },
 
-	-- Require ["nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons"]
 	-- Telescope
-	use({ 'nvim-telescope/telescope.nvim', tag = '0.1.x' })
-end)
+	{
+		'nvim-telescope/telescope.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+		tag = '0.1.1'
+	},
+
+	{ 'mbbill/undotree' }
+})

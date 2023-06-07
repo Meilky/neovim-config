@@ -2,6 +2,8 @@ local lsp = require('lsp-zero').preset('recommended')
 local cmp_action = require('lsp-zero').cmp_action()
 local cmp = require('cmp')
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered(),
@@ -12,15 +14,16 @@ cmp.setup({
 		['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 		['<C-j>'] = cmp.mapping.scroll_docs(4),
 		['<C-k>'] = cmp.mapping.scroll_docs(-4),
-		['<CR>'] = cmp.mapping.confirm({ select = true })
-	}
+		['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		['<C-e>'] = cmp.mapping.abort(),
+	},
 })
 
 lsp.set_preferences({
 	set_lsp_keymaps = false,
 	float_border = "rounded",
 	manage_nvim_cmp = {
-		set_sources = 'recommended'
+		set_sources = 'recommended',
 	}
 })
 
@@ -32,10 +35,10 @@ lsp.set_sign_icons({
 	info = 'I'
 });
 
-lsp.nvim_workspace()
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-lsp.configure("tsserver", {
-	on_init = function(client)
+require("lspconfig").tsserver.setup({
+	on_attach = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentFormattingRangeProvider = false
 	end
