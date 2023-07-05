@@ -5,7 +5,6 @@ neogit.setup({
 	auto_refresh = true,
 	kind = "vsplit",
 	signs = {
-		-- { CLOSED, OPENED }
 		section = { ">", "v" },
 		item = { ">", "v" },
 		hunk = { "", "" },
@@ -16,3 +15,10 @@ neogit.setup({
 })
 
 vim.keymap.set('n', '<leader>cc', neogit.open)
+
+require('gitsigns').setup({
+	signcolumn = true,
+	numhl      = false,
+	linehl     = false,
+	word_diff  = false,
+})

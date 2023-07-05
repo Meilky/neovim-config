@@ -1,4 +1,6 @@
 require('telescope').setup({
+	ensure_installed = { "vim", "lua", "vim", "vimdoc", "markdown", "markdown_inline" },
+
 	defaults = {
 		color_devicons = true,
 	},

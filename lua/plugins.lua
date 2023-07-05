@@ -23,7 +23,7 @@ require('lazy').setup({
 	{ "norcalli/nvim-colorizer.lua" },
 
 	-- Git signs
-	{ 'TimUntersberger/neogit',     dependencies = { 'nvim-lua/plenary.nvim' } },
+	{ 'NeogitOrg/neogit',           dependencies = { 'nvim-lua/plenary.nvim' } },
 	{ 'sindrets/diffview.nvim',     dependencies = { 'nvim-tree/nvim-web-devicons' } },
 	{ 'lewis6991/gitsigns.nvim' },
 
@@ -65,5 +65,14 @@ require('lazy').setup({
 		tag = '0.1.1'
 	},
 
-	{ 'mbbill/undotree' }
+	{ 'mbbill/undotree' },
+
+	{
+		"glepnir/lspsaga.nvim",
+		event = "LspAttach",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" }
+		}
+	}
 })
