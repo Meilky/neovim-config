@@ -52,15 +52,15 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>gp", "<cmd>Lspsaga peek_definition<CR>", opts)
 	vim.keymap.set({ "n", "v" }, "<leader>ga", "<cmd>Lspsaga code_action<CR>", opts)
 	vim.keymap.set("n", "<leader>gg", "<cmd>Lspsaga hover_doc<CR>", opts)
-	vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga rename ++project<CR>", opts)
+	vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga rename<CR>", opts)
 	vim.keymap.set("n", "<leader>go", "<cmd>Lspsaga outline<CR>", opts)
 
 	vim.keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>dd", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>dw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", opts)
 	vim.keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-	vim.keymap.set("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-	vim.keymap.set("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+	vim.keymap.set("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+	vim.keymap.set("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
