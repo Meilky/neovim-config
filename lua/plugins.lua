@@ -1,8 +1,7 @@
 require('lazy').setup({
 	{
 		'VonHeikemen/lsp-zero.nvim',
-		dependencies = {
-			'neovim/nvim-lspconfig',
+		dependencies = { 'neovim/nvim-lspconfig',
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
 
@@ -143,5 +142,10 @@ require('lazy').setup({
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		}
+	},
+
+	{
+		"rest-nvim/rest.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	}
 })
