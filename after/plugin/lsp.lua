@@ -58,7 +58,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>gp", "<cmd>Lspsaga peek_definition<CR>", opts)
 	vim.keymap.set({ "n", "v" }, "<leader>ga", "<cmd>Lspsaga code_action<CR>", opts)
 	vim.keymap.set("n", "<leader>gg", "<cmd>Lspsaga hover_doc<CR>", opts)
-	vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga rename<CR>", opts)
+	vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga rename mode=n<CR>", opts)
 	vim.keymap.set("n", "<leader>go", "<cmd>Lspsaga outline<CR>", opts)
 
 	vim.keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
@@ -102,4 +102,7 @@ require("lspsaga").setup({
 		collapse = "v",
 		title = false,
 	},
+	rename = {
+		in_select = true
+	}
 })

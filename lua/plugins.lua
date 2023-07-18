@@ -22,9 +22,36 @@ require('lazy').setup({
 	{ "norcalli/nvim-colorizer.lua" },
 
 	-- Git signs
-	{ 'NeogitOrg/neogit',           dependencies = { 'nvim-lua/plenary.nvim' } },
-	{ 'sindrets/diffview.nvim',     dependencies = { 'nvim-tree/nvim-web-devicons' } },
-	{ 'lewis6991/gitsigns.nvim' },
+	{
+		'NeogitOrg/neogit',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		opts = {
+			disable_commit_confirmation = true,
+			auto_refresh = true,
+			kind = "vsplit",
+			signs = {
+				section = { ">", "v" },
+				item = { ">", "v" },
+				hunk = { "", "" },
+			},
+			integrations = {
+				diffview = true
+			},
+		}
+	},
+	{
+		'sindrets/diffview.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
+	},
+	{
+		'lewis6991/gitsigns.nvim',
+		opts = {
+			signcolumn = true,
+			numhl      = false,
+			linehl     = false,
+			word_diff  = false,
+		}
+	},
 
 	-- Theme
 	{
