@@ -76,6 +76,8 @@ require('lazy').setup({
 		}
 	},
 
+	{ "RRethy/vim-illuminate" },
+
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
