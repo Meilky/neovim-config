@@ -1,5 +1,6 @@
 local lsp = require('lsp-zero').preset('recommended')
 local cmp_action = require('lsp-zero').cmp_action()
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 
 require('luasnip.loaders.from_vscode').lazy_load()
@@ -18,6 +19,11 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.abort(),
 	},
 })
+
+cmp.event:on(
+	'confirm_done',
+	cmp_autopairs.on_confirm_done()
+)
 
 lsp.set_preferences({
 	set_lsp_keymaps = false,

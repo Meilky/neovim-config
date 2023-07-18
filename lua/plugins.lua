@@ -147,5 +147,13 @@ require('lazy').setup({
 	{
 		"rest-nvim/rest.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		opts = {
+			disable_filetype = { "TelescopePrompt", "vim" },
+		}
 	}
 })
