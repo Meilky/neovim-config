@@ -78,6 +78,8 @@ require('lazy').setup({
 
 	{ "RRethy/vim-illuminate" },
 
+	{ 'Bekaboo/deadcolumn.nvim' },
+
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
