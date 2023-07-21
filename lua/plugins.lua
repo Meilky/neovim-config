@@ -1,7 +1,8 @@
 require('lazy').setup({
 	{
 		'VonHeikemen/lsp-zero.nvim',
-		dependencies = { 'neovim/nvim-lspconfig',
+		dependencies = {
+			'neovim/nvim-lspconfig',
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
 
@@ -11,6 +12,8 @@ require('lazy').setup({
 			'hrsh7th/cmp-path',
 			'saadparwaiz1/cmp_luasnip',
 			'hrsh7th/cmp-nvim-lua',
+			"kdheepak/cmp-latex-symbols",
+			'hrsh7th/cmp-nvim-lsp-signature-help',
 
 			'L3MON4D3/LuaSnip',
 			'rafamadriz/friendly-snippets',
@@ -182,5 +185,12 @@ require('lazy').setup({
 		opts = {
 			disable_filetype = { "TelescopePrompt", "vim" },
 		}
+	},
+
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = "markdown",
+		cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
+		build = function() vim.fn["mkdp#util#install"]() end,
 	}
 })
