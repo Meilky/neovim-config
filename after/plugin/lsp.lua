@@ -20,7 +20,7 @@ cmp.setup({
 		{
 			name = 'latex_symbols',
 			{
-				strategy = 0, -- mixed
+				strategy = 2,
 			}
 		},
 		{ name = "path" },

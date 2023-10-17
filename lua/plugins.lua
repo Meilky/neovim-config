@@ -61,7 +61,7 @@ require('lazy').setup({
 		'folke/tokyonight.nvim',
 		config = function()
 			vim.cmd("set termguicolors")
-			vim.cmd("colorscheme tokyonight-storm")
+			vim.cmd("colorscheme tokyonight")
 		end
 	},
 
@@ -91,7 +91,7 @@ require('lazy').setup({
 	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
-		tag = '0.1.1'
+		branch = '0.1.x'
 	},
 
 	{ 'mbbill/undotree' },
