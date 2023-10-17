@@ -1,16 +1,42 @@
-local lsp = require('lsp-zero').preset('recommended')
-local cmp_action = require('lsp-zero').cmp_action()
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local lsp_zero = require('lsp-zero').preset('recommended')
+local null_ls = require("null-ls")
 local cmp = require('cmp')
-local lspsaga = require("lspsaga")
+local cmp_action = require('lsp-zero').cmp_action()
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
+lsp_zero.on_attach(function(client, bufnr)
+	local opts = { buffer = bufnr }
+
+	local tb = require('telescope.builtin')
+
+	vim.keymap.set({ "n", "v" }, "<leader>ga", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "<leader>gg", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "<leader>gr", vim.lsp.buf.rename, opts)
+	vim.keymap.set("n", "<leader>FF", vim.lsp.buf.format, opts)
+	vim.keymap.set("n", "<leader>gR", tb.lsp_references, opts)
+	vim.keymap.set("n", "<leader>dd", tb.diagnostics, opts)
+	vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+	vim.keymap.set("n", "<leader>gd", tb.lsp_definitions, opts)
+end)
+
+vim.diagnostic.config({
+	virtual_text = false
+})
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+	handlers = {
+		lsp_zero.default_setup,
+		lua_ls = function()
+			local lua_opts = lsp_zero.nvim_lua_ls()
+			require('lspconfig').lua_ls.setup(lua_opts)
+		end,
+	}
+})
+
 cmp.setup({
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lsp_signature_help' },
@@ -25,89 +51,48 @@ cmp.setup({
 		},
 		{ name = "path" },
 	}),
-	mapping = {
-		['<Tab>'] = cmp_action.luasnip_jump_forward(),
-		['<S-Tab>'] = cmp_action.luasnip_jump_backward(),
+	formatting = {
+		fields = { 'abbr', 'kind', 'menu' },
+		format = require('lspkind').cmp_format({
+			mode = 'symbol_text',
+			maxwidth = 50,
+			ellipsis_char = '...',
+		})
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<C-n>'] = cmp.mapping.select_next_item(),
 		['<C-j>'] = cmp.mapping.scroll_docs(4),
 		['<C-k>'] = cmp.mapping.scroll_docs(-4),
-		['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-		['<C-e>'] = cmp.mapping.abort(),
-		['<C-space>'] = cmp_action.toggle_completion(),
-	},
+		['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+		['<C-Space>'] = cmp_action.toggle_completion(),
+		['<Tab>'] = cmp_action.luasnip_jump_forward(),
+		['<S-Tab>'] = cmp_action.luasnip_jump_backward(),
+	}),
 })
 
-cmp.event:on(
-	'confirm_done',
-	cmp_autopairs.on_confirm_done()
-)
-
-lsp.preset({ name = 'minimal' })
-
-
-lsp.set_sign_icons({
+lsp_zero.set_sign_icons({
 	error = 'E',
 	warn = 'W',
 	hint = 'H',
 	info = 'I'
 });
 
-lsp.configure('tsserver', {
-	on_attach = function(client)
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentFormattingRangeProvider = false
-	end
-})
 
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
+null_ls.setup()
 
-	local opts = { buffer = bufnr }
-
-	vim.keymap.set("n", "<leader>gh", "<cmd>Lspsaga finder<CR>", opts)
-	vim.keymap.set("n", "<leader>gd", "<cmd>Lspsaga goto_definition<CR>", opts)
-	vim.keymap.set("n", "<leader>gp", "<cmd>Lspsaga peek_definition<CR>", opts)
-	vim.keymap.set({ "n", "v" }, "<leader>ga", "<cmd>Lspsaga code_action<CR>", opts)
-	vim.keymap.set("n", "<leader>gg", "<cmd>Lspsaga hover_doc<CR>", opts)
-	vim.keymap.set("n", "<leader>gr", "<cmd>Lspsaga rename<CR>", opts)
-	vim.keymap.set("n", "<leader>go", "<cmd>Lspsaga outline<CR>", opts)
-
-	vim.keymap.set("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts)
-	vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts)
-
-	vim.keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-	vim.keymap.set("n", "<leader>dd", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
-	vim.keymap.set("n", "<leader>dw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", opts)
-	vim.keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-	vim.keymap.set("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-	vim.keymap.set("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-
-	vim.keymap.set("n", "<leader>FF", function() vim.lsp.buf.format() end, opts)
-end)
-
-vim.diagnostic.config({
-	virtual_text = false
-})
-
-lsp.setup()
-
-require("lspsaga").setup({
-	preview = {
-		lines_above = 2,
-		lines_below = 10,
-	},
-	scroll_preview = {
-		scroll_down = "<C-j>",
-		scroll_up = "<C-k>",
-	},
-	lightbulb = {
-		virtual_text = false,
-	},
-	ui = {
-		code_action = "A",
-		border = "rounded",
-		title = false,
-	},
-	rename = {
-		in_select = false
+require("mason-null-ls").setup({
+	handlers = {
+		prettier = function(source_name, methods)
+			null_ls.register(null_ls.builtins.formatting.prettier)
+		end,
+		eslint = function(source_name, methods)
+			null_ls.register(null_ls.builtins.code_actions.eslint)
+			null_ls.register(null_ls.builtins.diagnostics.eslint)
+		end,
 	}
 })
