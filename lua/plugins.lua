@@ -61,4 +61,11 @@ require('lazy').setup({
 		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
 		branch = '0.1.x'
 	},
+
+	{
+		'stevearc/oil.nvim',
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
+	{ 'kevinhwang91/nvim-bqf' }
 })

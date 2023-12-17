@@ -18,3 +18,8 @@ km.set("n", "<leader>w=", "<C-W>=")
 km.set("n", "<leader>wr", "<C-W>R")
 km.set("n", "<leader>wtj", "<C-W>t<C-W>K")
 km.set("n", "<leader>wtl", "<C-W>t<C-W>H")
+
+km.set("n", "<leader>cc", "<cmd>botright copen<CR>")
+km.set("n", "<leader>cq", "<cmd>cclose<CR>")
+km.set("n", "<leader>cn", "<cmd>cnext<CR>")
+km.set("n", "<leader>cp", "<cmd>cprev<CR>")
