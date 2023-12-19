@@ -67,5 +67,7 @@ require('lazy').setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	{ 'kevinhwang91/nvim-bqf' }
+	{ 'kevinhwang91/nvim-bqf' },
+
+	{ "rest-nvim/rest.nvim",       dependencies = { { "nvim-lua/plenary.nvim" } } }
 })
