@@ -1,25 +1,15 @@
-vim.g.mapleader = ";"
-vim.g.maplocalleader = ","
+vim.g.mapleader = " "
 
-local km = require("vim.keymap")
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 
-km.set("n", "<leader>ws", "<cmd>split<CR>")
-km.set("n", "<leader>wv", "<cmd>vsplit<CR>")
-km.set("n", "<leader>wh", "<C-W>h")
-km.set("n", "<leader>wj", "<C-W>j")
-km.set("n", "<leader>wk", "<C-W>k")
-km.set("n", "<leader>wl", "<C-W>l")
-km.set("n", "<leader>wH", "<cmd>vertical resize +5<CR>")
-km.set("n", "<leader>wJ", "<cmd>resize -5<CR>")
-km.set("n", "<leader>wK", "<cmd>resize +5<CR>")
-km.set("n", "<leader>wL", "<cmd>vertical resize -5<CR>")
-km.set("n", "<leader>w-", "<C-W>_")
-km.set("n", "<leader>w=", "<C-W>=")
-km.set("n", "<leader>wr", "<C-W>R")
-km.set("n", "<leader>wtj", "<C-W>t<C-W>K")
-km.set("n", "<leader>wtl", "<C-W>t<C-W>H")
+vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>")
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>")
+vim.keymap.set("n", "<leader>wh", "<C-W>h")
+vim.keymap.set("n", "<leader>wj", "<C-W>j")
+vim.keymap.set("n", "<leader>wk", "<C-W>k")
+vim.keymap.set("n", "<leader>wl", "<C-W>l")
 
-km.set("n", "<leader>cc", "<cmd>botright copen<CR>")
-km.set("n", "<leader>cq", "<cmd>cclose<CR>")
-km.set("n", "<leader>cn", "<cmd>cnext<CR>")
-km.set("n", "<leader>cp", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<leader>cc", "<cmd>botright copen<CR>")
+vim.keymap.set("n", "<leader>cq", "<cmd>cclose<CR>")
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<leader>cp", "<cmd>cprev<CR>")

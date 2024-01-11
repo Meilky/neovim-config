@@ -16,10 +16,7 @@ require('lazy').setup({
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-nvim-lua',
-			'saadparwaiz1/cmp_luasnip',
 			"kdheepak/cmp-latex-symbols",
-			'hrsh7th/cmp-nvim-lsp-signature-help',
 
 			'L3MON4D3/LuaSnip',
 			'rafamadriz/friendly-snippets',
@@ -69,5 +66,7 @@ require('lazy').setup({
 
 	{ 'kevinhwang91/nvim-bqf' },
 
-	{ "rest-nvim/rest.nvim",       dependencies = { { "nvim-lua/plenary.nvim" } } }
+	{ "rest-nvim/rest.nvim",       dependencies = { { "nvim-lua/plenary.nvim" } } },
+
+	{ 'stevearc/conform.nvim' }
 })
