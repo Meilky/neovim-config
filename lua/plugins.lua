@@ -66,7 +66,5 @@ require('lazy').setup({
 
 	{ 'kevinhwang91/nvim-bqf' },
 
-	{ "rest-nvim/rest.nvim",       dependencies = { { "nvim-lua/plenary.nvim" } } },
-
 	{ 'stevearc/conform.nvim' }
 })
