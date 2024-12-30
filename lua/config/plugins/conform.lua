@@ -20,6 +20,13 @@ return {
 					python = { "isort", "black" },
 					rust = { "rustfmt", lsp_format = "fallback" },
 					javascript = { "prettierd", "prettier", stop_after_first = true },
+					typescript = { "prettierd", "prettier", stop_after_first = true },
+					svelte = { "prettierd", "prettier", stop_after_first = true },
+					html = { "prettierd", "prettier", stop_after_first = true },
+					css = { "prettierd", "prettier", stop_after_first = true },
+					markdown = { "prettierd", "prettier", stop_after_first = true },
+					php = { "php-cs-fixer" },
+					sql = { "sql-formater" },
 				},
 			})
 
