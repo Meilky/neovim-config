@@ -15,7 +15,7 @@ return {
 
 			require("mini.diff").setup()
 
-			require("mini.completion").setup()
+			require("mini.snippets").setup()
 
 			require("mini.fuzzy").setup()
 
