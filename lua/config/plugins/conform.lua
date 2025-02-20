@@ -27,6 +27,7 @@ return {
 					markdown = { "prettierd", "prettier", stop_after_first = true },
 					php = { "php-cs-fixer" },
 					sql = { "sql-formater" },
+					tex = { "tex-fmt" },
 				},
 			})
 
