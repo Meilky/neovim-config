@@ -19,9 +19,12 @@ vim.opt.signcolumn = "yes"
 vim.opt.winbar = "%f"
 vim.opt.laststatus = 3
 
+vim.opt.mouse = ""
+
 vim.keymap.set("n", "<A-n>", ":tabnew<CR>")
 vim.keymap.set("n", "<A-h>", ":tabprevious<CR>")
 vim.keymap.set("n", "<A-l>", ":tabnext<CR>")
+vim.keymap.set("n", "<A-t>", ":tabnew<CR>:term<CR>")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 require("config.lazy")

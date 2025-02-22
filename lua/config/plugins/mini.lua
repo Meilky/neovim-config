@@ -5,6 +5,8 @@ return {
 		config = function()
 			require("mini.extra").setup()
 
+			require("mini.ai").setup()
+
 			require("mini.icons").setup({
 				style = "ascii",
 			})
