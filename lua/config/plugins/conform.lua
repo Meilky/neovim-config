@@ -26,7 +26,7 @@ return {
 					css = { "prettierd", "prettier", stop_after_first = true },
 					markdown = { "prettierd", "prettier", stop_after_first = true },
 					php = { "php-cs-fixer" },
-					sql = { "sql-formatter" },
+					sql = { "sql_formatter" },
 					tex = { "tex-fmt" },
 				},
 			})

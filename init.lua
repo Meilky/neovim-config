@@ -25,6 +25,8 @@ vim.keymap.set("n", "<A-n>", ":tabnew<CR>")
 vim.keymap.set("n", "<A-h>", ":tabprevious<CR>")
 vim.keymap.set("n", "<A-l>", ":tabnext<CR>")
 vim.keymap.set("n", "<A-t>", ":tabnew<CR>:term<CR>")
+vim.keymap.set("n", "<A-H>", ":tabmove -<CR>")
+vim.keymap.set("n", "<A-L>", ":tabmove +<CR>")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 require("config.lazy")
