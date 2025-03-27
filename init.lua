@@ -1,6 +1,7 @@
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 0
+vim.opt.smartindent = true
+vim.opt.shiftround = true
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -8,18 +9,19 @@ vim.opt.textwidth = 0
 vim.opt.scrolloff = 10
 vim.opt.number = true
 vim.opt.relativenumber = true
-
-vim.opt.autoindent = true
-vim.opt.smartindent = true
+vim.opt.cursorline = true
 
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 
-vim.opt.signcolumn = "yes"
 vim.opt.winbar = "%f"
 vim.opt.laststatus = 3
 
 vim.opt.mouse = ""
+
+vim.opt.winborder = "rounded"
+
+vim.g.have_nerd_font = false
 
 vim.keymap.set("n", "<A-n>", ":tabnew<CR>")
 vim.keymap.set("n", "<A-h>", ":tabprevious<CR>")
