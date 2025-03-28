@@ -13,6 +13,7 @@ vim.opt.cursorline = true
 
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = "yes"
 
 vim.opt.winbar = "%f"
 vim.opt.laststatus = 3
