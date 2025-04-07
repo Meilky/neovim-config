@@ -5,7 +5,9 @@ return {
 		config = function()
 			require("mini.extra").setup()
 
-			require("mini.ai").setup()
+			require("mini.ai").setup({
+				search_method = 'cover',
+			})
 
 			require("mini.icons").setup({
 				style = "ascii",
