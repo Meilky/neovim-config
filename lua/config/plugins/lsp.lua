@@ -19,25 +19,6 @@ return {
 		config = function()
 			require("mason").setup()
 			require("mason-lspconfig").setup()
-
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					if server_name == "ltex" then
-						require("lspconfig")[server_name].setup({
-							capabilities = capabilities,
-							settings = {
-								ltex = {
-									language = "fr",
-								},
-							},
-						})
-					else
-						require("lspconfig")[server_name].setup({ capabilities = capabilities })
-					end
-				end,
-			})
 		end,
 	},
 }
