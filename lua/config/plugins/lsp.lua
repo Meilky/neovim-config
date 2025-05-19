@@ -19,6 +19,16 @@ return {
 		config = function()
 			require("mason").setup()
 			require("mason-lspconfig").setup()
+
+			vim.lsp.config("ruff", {
+				init_options = {
+					settings = {
+						configurationPreference = "filesystemFirst",
+					},
+				},
+			})
+
+			vim.lsp.enable("ruff")
 		end,
 	},
 }
