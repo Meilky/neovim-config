@@ -28,7 +28,16 @@ return {
 				},
 			})
 
+			vim.lsp.config("ltex", {
+				settings = {
+					["ltex"] = {
+						language = "fr",
+					},
+				},
+			})
+
 			vim.lsp.enable("ruff")
+			vim.lsp.enable("ltex")
 		end,
 	},
 }
