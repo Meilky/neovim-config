@@ -51,7 +51,7 @@ require("mini.icons").setup({
 require("mini.pick").setup()
 vim.keymap.set("n", "<leader>ff", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>")
-vim.keymap.set("n", "<leader>fg", ":Pick grep<CR>")
+vim.keymap.set("n", "<leader>fg", ":Pick grep_live<CR>")
 
 require("mason").setup()
 require("mason-lspconfig").setup()
